@@ -1,5 +1,11 @@
 import { Product, User } from "./models/"
-import { _mapApiUserToUser, _mapApiProductToProduct, apiEnpoints } from "./apis/"
+import {
+  _mapApiUserToUser,
+  _mapApiProductToProduct,
+  _mapCacheToUsers,
+  _mapCacheToProducts,
+  apiEnpoints
+} from "./apis/"
 
 export function getData(key, setState) {
   const storedData = JSON.parse(localStorage.getItem(key) || "")
@@ -14,14 +20,6 @@ function _restoreDataFromCache(key, setState, storedData) {
   if (!apiEnpoints.includes(key)) throw new Error("Invalid key")
   if (key === "users") setState(_mapCacheToUsers(storedData))
   if (key === "components") setState(_mapCacheToProducts(storedData))
-}
-
-function _mapCacheToUsers(array) {
-  return array.map((userData) => new User(userData))
-}
-
-function _mapCacheToProducts(array) {
-  return array.map((productData) => new Product(productData))
 }
 
 function _getUrlFromKey(key) {
