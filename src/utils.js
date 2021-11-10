@@ -19,7 +19,7 @@ export function getData(key, setState) {
 
 function _getUrlFromKey(key) {
   return process.env.REACT_APP_API_URL + key
-}
+} 
 
 function _fetchData(key, setState) {
   const url = _getUrlFromKey(key)

@@ -1,5 +1,5 @@
-import { User } from "./"
+import { BasicTable } from "./"
 
 export default function UserList({ users }) {
-  return users.map((user) => <User key={user.id} user={user} />)
+  return <BasicTable items={users} />
 }
