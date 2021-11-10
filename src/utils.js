@@ -8,6 +8,14 @@ import {
   apiEnpoints
 } from "./apis/"
 
+export function mapKeyToName(string) {
+  return string
+    .replace(/([A-Z])/g, " $1")
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ")
+}
+
 export function getData(key, setState) {
   const storedData = JSON.parse(localStorage.getItem(key) || "")
   if (storedData && storedData.length > 0) {
@@ -19,7 +27,7 @@ export function getData(key, setState) {
 
 function _getUrlFromKey(key) {
   return process.env.REACT_APP_API_URL + key
-} 
+}
 
 function _fetchData(key, setState) {
   const url = _getUrlFromKey(key)

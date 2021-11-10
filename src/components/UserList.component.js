@@ -1,5 +1,8 @@
-import { BasicTable } from "./"
+import { BasicTable, DataTable } from "./"
 
 export default function UserList({ users }) {
-  return <BasicTable items={users} />
+  if (!users || users.length === 0) {
+    return <div>Loading...</div>
+  }
+  return <DataTable users={users} />
 }
