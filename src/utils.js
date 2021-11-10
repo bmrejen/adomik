@@ -4,6 +4,7 @@ import {
   _mapApiProductToProduct,
   _mapCacheToUsers,
   _mapCacheToProducts,
+  _restoreDataFromCache,
   apiEnpoints
 } from "./apis/"
 
@@ -14,12 +15,6 @@ export function getData(key, setState) {
   } else {
     return _fetchData(key, setState)
   }
-}
-
-function _restoreDataFromCache(key, setState, storedData) {
-  if (!apiEnpoints.includes(key)) throw new Error("Invalid key")
-  if (key === "users") setState(_mapCacheToUsers(storedData))
-  if (key === "components") setState(_mapCacheToProducts(storedData))
 }
 
 function _getUrlFromKey(key) {
