@@ -18,15 +18,14 @@ const useStyles = makeStyles((theme) => {
         textAlign: "center"
       },
       "& .MuiDataGrid-row": {
-        animation: "$appear 1s ease-in-out backwards"
+        animation: "$appear .5s ease-in-out backwards"
       }
     }
   }
 
   for (let i = 1; i <= rowsPerPage; i++) {
-    styles.root[`& .MuiDataGrid-row:nth-child(${i})`] = { "animation-delay": `${i * 0.1}s` }
+    styles.root[`& .MuiDataGrid-row:nth-child(${i})`] = { "animation-delay": `${i * 0.2}s` }
   }
-  console.log(styles.root)
   return styles
 })
 
