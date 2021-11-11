@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { UserList } from "./components"
+import { UserList, Navbar } from "./components"
 import { getData } from "./utils"
 import CssBaseline from "@mui/material/CssBaseline"
 
@@ -17,6 +17,7 @@ function App() {
   return (
     <>
       <CssBaseline />
+      <Navbar products={products}/>
       <UserList users={users} />
       {/* <ProductList products={products} /> */}
     </>
