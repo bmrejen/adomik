@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <CssBaseline />
-      <Navbar products={products}/>
+      <Navbar products={products} />
       <UserList users={users} />
       {/* <ProductList products={products} /> */}
     </>

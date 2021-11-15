@@ -9,8 +9,6 @@ import { Link as RouterLink, MemoryRouter as Router } from "react-router-dom"
 import adomik from "./../assets/adomik.svg"
 
 export default function Navbar({ products }) {
-  console.log(products)
-
   const buttons = products.map((product, i) => (
     <Button
       key={i}
