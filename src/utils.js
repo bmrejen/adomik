@@ -24,7 +24,7 @@ export function getData(key, setState) {
 }
 
 function _getUrlFromKey(key) {
-  return process.env.BACKEND_URL + key
+  return `${process.env.BACKEND_URL}/${key}`
 }
 
 function _fetchData(key, setState) {
