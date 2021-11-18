@@ -2,19 +2,35 @@ import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
 import Toolbar from "@mui/material/Toolbar"
 import Typography from "@mui/material/Typography"
-import Button from "@mui/material/Button"
 import IconButton from "@mui/material/IconButton"
 import MenuIcon from "@mui/icons-material/Menu"
 import { Link } from "react-router-dom"
 import adomik from "./../assets/adomik.svg"
+import React from "react"
+import Button from "@mui/material/Button"
+import { useLocation, matchPath } from "react-router-dom"
 
-export default function Navbar({ products }) {
-  if (products.length === 0) return <p>No products</p>
-  const buttons = products.map((product, i) => (
-    <Link to={`/product/${product.code}`} key={i}>
-      {product.code}
-    </Link>
-  ))
+const links = ["users", "products"]
+
+export default function Navbar() {
+  let { pathname } = useLocation()
+  console.log(!!matchPath(pathname, "/products"))
+  const buttons = links.map((link, i) => {
+    const isActive = !!matchPath(pathname, `/${link}`)
+    console.log({ pathname, isActive })
+    return (
+      <Button
+        component={Link}
+        to={`/${link}`}
+        key={i}
+        variant={isActive ? "contained" : "outlined"}
+        size="large"
+        fullWidth={true}
+      >
+        {link.toUpperCase()}
+      </Button>
+    )
+  })
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">

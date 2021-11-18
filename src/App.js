@@ -20,9 +20,10 @@ function App() {
     <>
       <CssBaseline />
       <BrowserRouter>
-        <Navbar products={products} />
+        <Navbar />
         <Routes>
           <Route path="products" element={<ProductList products={products} />} />
+          <Route path="/users" element={<UserList users={users} />} />
           <Route path="*" element={<div>404</div>} />
           <Route path="/" element={<UserList users={users} />} />
         </Routes>
