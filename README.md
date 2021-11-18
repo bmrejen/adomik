@@ -11,6 +11,11 @@ Data is mapped to a custom model (Product or User) that the app passes to the vi
 
 The app is easily adaptable to new APIs. Just add the new endpoint to the list of authorized `apiEndpoints` in /apis and add the necessary state and setState in App.js.
 
+## Demo
+
+A live demo is available here: https://adomik-bmrejen.vercel.app/
+
+
 ## Endpoints
 
 /components
