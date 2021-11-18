@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { UserList, Navbar } from "./components"
+import { UserList, Navbar, ProductList } from "./components"
 import { getData } from "./utils"
 import CssBaseline from "@mui/material/CssBaseline"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 function App() {
   // Users
@@ -14,12 +15,18 @@ function App() {
   useEffect(() => getData("components", setProducts), [])
   useEffect(() => localStorage.setItem("components", JSON.stringify(products)), [products])
 
+  if (products.length === 0) return <div>Loading...</div>
   return (
     <>
       <CssBaseline />
-      <Navbar products={products} />
-      <UserList users={users} />
-      {/* <ProductList products={products} /> */}
+      <BrowserRouter>
+        <Navbar products={products} />
+        <Routes>
+          <Route path="products" element={<ProductList products={products} />} />
+          <Route path="*" element={<div>404</div>} />
+          <Route path="/" element={<UserList users={users} />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

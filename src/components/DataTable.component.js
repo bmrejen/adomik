@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => {
   return styles
 })
 
-export default function DataTable({ items }) {
+export default function DataTable({ items, selectedMenu }) {
   const classes = useStyles()
   if (!items || items.length === 0) {
     return (
@@ -39,6 +39,8 @@ export default function DataTable({ items }) {
       </Box>
     )
   }
+
+  console.log(items)
   const columns = Object.keys(items[0]).map((key) => ({
     field: key,
     headerName: mapKeyToName(key),
@@ -46,17 +48,20 @@ export default function DataTable({ items }) {
   }))
 
   const rows = [...items]
+  console.log({ rows, columns })
 
   return (
-    <div style={{ height: 650, width: "100%" }}>
-      <DataGrid
-        className={classes.root}
-        rows={rows}
-        columns={columns}
-        pageSize={rowsPerPage}
-        rowsPerPageOptions={[rowsPerPage]}
-        checkboxSelection
-      />
-    </div>
+    <>
+      <div style={{ height: 650, width: "100%" }}>
+        <DataGrid
+          className={classes.root}
+          rows={rows}
+          columns={columns}
+          pageSize={rowsPerPage}
+          rowsPerPageOptions={[rowsPerPage]}
+          checkboxSelection
+        />
+      </div>
+    </>
   )
 }
