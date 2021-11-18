@@ -2,8 +2,6 @@ import { Product, User } from "./models/"
 import {
   _mapApiUserToUser,
   _mapApiProductToProduct,
-  _mapCacheToUsers,
-  _mapCacheToProducts,
   _restoreDataFromCache,
   apiEnpoints
 } from "./apis/"

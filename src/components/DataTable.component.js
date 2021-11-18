@@ -40,15 +40,12 @@ export default function DataTable({ items, selectedMenu }) {
     )
   }
 
-  console.log(items)
   const columns = Object.keys(items[0]).map((key) => ({
     field: key,
     headerName: mapKeyToName(key),
     width: 160
   }))
-
   const rows = [...items]
-  console.log({ rows, columns })
 
   return (
     <>

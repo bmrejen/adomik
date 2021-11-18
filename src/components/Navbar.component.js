@@ -14,10 +14,8 @@ const links = ["users", "products"]
 
 export default function Navbar() {
   let { pathname } = useLocation()
-  console.log(!!matchPath(pathname, "/products"))
   const buttons = links.map((link, i) => {
     const isActive = !!matchPath(pathname, `/${link}`)
-    console.log({ pathname, isActive })
     return (
       <Button
         component={Link}
